@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Оплата</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-payment block1">
+                <div class="container">
+                    <div class="block-payment__content">
+                        <h2 class="title2">
+                            Другие способы оплаты
+                        </h2>
+                        <div class="block-payment__body">
+                            <div class="block-payment__column">
+                                <div class="block-payment__top">
+                                    <div class="block-payment__titles">
+                                        <div class="block-payment__icon">
+                                            <img src="img/icons/money.svg" alt="">
+                                        </div>
+                                        <div class="block-payment__title">
+                                            Юридическим лицам и турагентствам
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Если вы представляете организацию или турагентство, оплата производится по
+                                        выставленному счету безналичным переводом
+                                    </p>
+                                </div>
+                                <a href="#" download="#" class="btn btn-white btn-small">
+                                    <span>Скачать реквизиты ООО "Музыка путешествий"</span>
+                                </a>
+                            </div>
+                            <div class="block-payment__column">
+                                <div class="block-payment__top">
+                                    <div class="block-payment__titles">
+                                        <div class="block-payment__icon">
+                                            <img src="img/icons/qr.svg" alt="">
+                                        </div>
+                                        <div class="block-payment__title">
+                                            Оплата по QR-коду (СБП)
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Вы можете оплатить тур через мобильное приложение вашего банка, отсканировав наш
+                                        фирменный QR-код. Обязательно укажите номер брони в назначении платежа
+                                    </p>
+                                </div>
+                                <a href="./" target="_blank" class="btn btn-white btn-small">
+                                    <span>Открыть QR-код для оплаты</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-payment-card">
+                <div class="container">
+                    <div class="block-payment-card__content">
+                        <div class="block-payment-card__body">
+                            <div class="block-payment-card__column">
+                                <img loading="lazy" src="img/icons/payment1.svg" alt="">
+                            </div>
+                            <div class="block-payment-card__column">
+                                <img loading="lazy" src="img/icons/payment2.svg" alt="">
+                            </div>
+                            <div class="block-payment-card__column">
+                                <img loading="lazy" src="img/icons/payment3.svg" alt="">
+                            </div>
+                            <div class="block-payment-card__column">
+                                <img loading="lazy" src="img/icons/payment4.svg" alt="">
+                            </div>
+                            <div class="block-payment-card__column">
+                                <img loading="lazy" src="img/icons/payment5.svg" alt="">
+                            </div>
+                        </div>
+                        <p>
+                            Оплата происходит через авторизационный сервер Процессингового центра Банка с использованием
+                            Банковских кредитных карт. Передача данных осуществляется по защищенному протоколу с
+                            шифрованием (SSL). Ваши конфиденциальные данные (реквизиты карты, регистрационные данные и
+                            др.) не поступают в нашу компанию, их обработка полностью защищена и никто не может получить
+                            персональные и банковские данные клиента
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-faq block1">
+                <div class="container">
+                    <div class="block-faq__content">
+                        <h2 class="title2">
+                            Возникли сложности?
+                        </h2>
+                        <div data-spollers class="spollers-faq">
+                            <div class="spollers-faq__item">
+                                <button type="button" data-spoller class="spollers-faq__button">
+                                    <img loading="lazy" src="img/icons/question-mark.svg" alt=""
+                                        class="spollers-faq__pic1">
+                                    <span class="spollers-faq__title">
+                                        Что делать, если платеж не прошел?
+                                    </span>
+                                    <span class="spollers-faq__icon"></span>
+                                </button>
+                                <div class="spollers-faq__body">
+                                    <div class="spollers-faq__text">
+                                        <p>
+                                            В программу многодневных туров, как правило, включены завтраки (шведский
+                                            стол) в гостинице. Обеды и ужины организуются в проверенных городских
+                                            кафе
+                                            (за доп. плату или по предзаказу).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spollers-faq__item">
+                                <button type="button" data-spoller class="spollers-faq__button">
+                                    <img loading="lazy" src="img/icons/question-mark.svg" alt=""
+                                        class="spollers-faq__pic1">
+                                    <span class="spollers-faq__title">
+                                        Как получить закрывающие документы?
+                                    </span>
+                                    <span class="spollers-faq__icon"></span>
+                                </button>
+                                <div class="spollers-faq__body">
+                                    <div class="spollers-faq__text">
+                                        <p>
+                                            Электронный чек приходит на ваш Email автоматически сразу после оплаты. Если
+                                            вам нужны оригиналы документов для бухгалтерии, сообщите об этом менеджеру
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="spollers-faq__item">
+                                <button type="button" data-spoller class="spollers-faq__button">
+                                    <img loading="lazy" src="img/icons/question-mark.svg" alt=""
+                                        class="spollers-faq__pic1">
+                                    <span class="spollers-faq__title">
+                                        Правила возврата средств
+                                    </span>
+                                    <span class="spollers-faq__icon"></span>
+                                </button>
+                                <div class="spollers-faq__body">
+                                    <div class="spollers-faq__text">
+                                        <p>
+                                            В программу многодневных туров, как правило, включены завтраки (шведский
+                                            стол) в гостинице. Обеды и ужины организуются в проверенных городских
+                                            кафе
+                                            (за доп. плату или по предзаказу).
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>
