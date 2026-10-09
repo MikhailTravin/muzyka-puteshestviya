@@ -28,7 +28,9 @@
         position: absolute;
         bottom: 15px;
         left: 0;
-        border-radius: 0px 5px 5px 0px;
+        right: 15px;
+        width: fit-content;
+        border-radius: 0px 10px 10px 0px;
         z-index: 5;
         display: flex;
         align-items: center;
@@ -118,6 +120,357 @@
     }
 
     // .card-news__title
+
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 144%;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+}
+
+.card-teams {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    @media (max-width: 768px) {
+        gap: 10px;
+    }
+    // .card-teams__image
+
+    &__image {
+        display: flex;
+        align-items: flex-end;
+        border-radius: 15px;
+        background: var(--ffffff);
+        aspect-ratio: 3.43 / 4;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    // .card-teams__item
+
+    &__item {
+        display: flex;
+        flex-direction: column;
+        gap: 11px;
+        @media (max-width: 768px) {
+            gap: 8px;
+        }
+    }
+
+    // .card-teams__titles
+
+    &__titles {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        @media (max-width: 768px) {
+            gap: 5px;
+        }
+        p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            opacity: 0.7;
+            @media (max-width: 768px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    // .card-teams__title
+
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 144%;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+
+    // .card-teams__mail
+
+    &__mail {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 154%;
+        color: var(--0476bb);
+        transition: opacity 0.3s;
+        @media (max-width: 768px) {
+            font-size: 11px;
+            gap: 6px;
+        }
+        @media (any-hover: hover) {
+            &:hover {
+                opacity: 0.7;
+            }
+        }
+    }
+
+    // .card-teams__icon
+
+    &__icon {
+        width: 12px;
+        height: 12px;
+        flex: 0 0 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 3px;
+        @media (max-width: 768px) {
+            margin-top: 2px;
+            width: 10px;
+            height: 10px;
+            flex: 0 0 10px;
+        }
+        svg {
+            fill: var(--0476bb);
+            @media (max-width: 768px) {
+                width: 10px;
+                height: auto;
+            }
+        }
+    }
+}
+
+.card-product {
+    display: flex;
+    flex-direction: column;
+    gap: 19px;
+    position: relative;
+    @media (max-width: 768px) {
+        gap: 10px;
+    }
+    // .card-product__image
+
+    &__image {
+        position: relative;
+        border-radius: 15px;
+        overflow: hidden;
+        aspect-ratio: 3.43 / 4;
+    }
+
+    // .card-product__pic1
+
+    &__pic1 {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // .card-product__price
+
+    &__price {
+        position: absolute;
+        left: 0;
+        right: 15px;
+        width: fit-content;
+        font-weight: 600;
+        font-size: 20px;
+        line-height: 120%;
+        color: var(--ffffff);
+        padding: 8px 20px;
+        border-radius: 0px 10px 10px 0px;
+        bottom: 15px;
+        z-index: 5;
+        background: var(--0476bb);
+        box-shadow: 0 5px 60px 0 rgba(40, 19, 6, 0.07);
+        @media (max-width: 768px) {
+            font-size: 14px;
+            padding: 5px 12px;
+            bottom: 10px;
+        }
+    }
+
+    // .card-product__item
+
+    &__item {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        @media (max-width: 768px) {
+            gap: 10px;
+        }
+    }
+
+    // .card-product__top
+
+    &__top {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    // .card-product__data
+
+    &__data {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 600;
+        font-size: 13px;
+        line-height: 154%;
+        color: var(--0476bb);
+        @media (max-width: 768px) {
+            font-size: 11px;
+            gap: 5px;
+        }
+    }
+
+    // .card-product__icon
+
+    &__icon {
+        width: 12px;
+        height: auto;
+        flex: 0 0 12px;
+        margin-top: 2px;
+        @media (max-width: 768px) {
+            width: 10px;
+            flex: 0 0 10px;
+            margin-top: 3px;
+        }
+        svg {
+            fill: var(--0476bb);
+            @media (max-width: 768px) {
+                width: 10px;
+                height: auto;
+            }
+        }
+    }
+
+    // .card-product__titles
+
+    &__titles {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        @media (max-width: 768px) {
+            gap: 5px;
+        }
+        p {
+            font-weight: 400;
+            font-size: 14px;
+            line-height: 143%;
+            opacity: 0.7;
+            display: -webkit-box;
+            -webkit-line-clamp: 1;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            @media (max-width: 768px) {
+                font-size: 12px;
+            }
+        }
+    }
+
+    // .card-product__title
+
+    &__title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 144%;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        @media (max-width: 768px) {
+            font-size: 16px;
+        }
+    }
+
+    // .card-product__buttons
+
+    &__buttons {
+        .btn {
+            width: 100%;
+        }
+    }
+}
+
+.card-catalog {
+    display: flex;
+    flex-direction: column;
+    gap: 21px;
+    position: relative;
+    @media (max-width: 768px) {
+        gap: 10px;
+    }
+    // .card-catalog__image
+
+    &__image {
+        border-radius: 15px;
+        height: 280px;
+        overflow: hidden;
+        position: relative;
+        @media (max-width: 992px) {
+            height: 200px;
+        }
+        @media (max-width: 550px) {
+            height: 150px;
+        }
+    }
+
+    // .card-catalog__badge
+
+    &__badge {
+        position: absolute;
+        left: 0;
+        right: 15px;
+        width: fit-content;
+        bottom: 15px;
+        border-radius: 0px 10px 10px 0px;
+        background: linear-gradient(90deg, #033f61 0%, #006a8e 100%);
+        box-shadow: 0 5px 60px 0 rgba(40, 19, 6, 0.07);
+        padding: 10px 20px;
+        font-weight: 600;
+        font-size: 14px;
+        line-height: 143%;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--ffffff);
+    }
+
+    // .card-catalog__pic1
+
+    &__pic1 {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    // .card-catalog__item
+
+    &__item {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 21px;
+    }
+
+    // .card-catalog__titles
+
+    &__titles {
+        flex: 1 1 auto;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        @media (max-width: 768px) {
+            gap: 5px;
+        }
+    }
+
+    // .card-catalog__title
 
     &__title {
         font-weight: 600;
