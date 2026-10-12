@@ -503,7 +503,6 @@ window.addEventListener('resize', function () {
 
 //========================================================================================================================================================
 
-/*
 const iconMenu = document.querySelector('.icon-menu');
 const headerBody = document.querySelector('.header__menu');
 
@@ -525,7 +524,288 @@ document.addEventListener("click", function (e) {
 
 //========================================================================================================================================================
 
-//Форма
+// Добавление к шапке при скролле
+const header = document.querySelector('.header');
+if (header) {
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 0) {
+      header.classList.add('_header-scroll');
+      document.documentElement.classList.add('header-scroll');
+    } else {
+      header.classList.remove('_header-scroll');
+      document.documentElement.classList.remove('header-scroll');
+    }
+  });
+}
+
+//========================================================================================================================================================
+
+const calendars = document.querySelectorAll(".calendar");
+
+if (calendars.length > 0) {
+  calendars.forEach(calendar => {
+    const calendarMain = calendar.querySelector(".calendar__main");
+    const calHeaderTitle = calendar.querySelector(".calendar__header span");
+
+    const formCalendar = calendar.closest(".form-calendar");
+
+    if (!formCalendar) {
+      return;
+    }
+
+    const input = formCalendar.querySelector(".input-calendar");
+
+    if (!input) {
+      return;
+    }
+
+    const months = [
+      "Январь", "Февраль", "Март", "Апрель", "Май", "Июнь",
+      "Июль", "Август", "Сентябрь", "Октябрь", "Ноябрь", "Декабрь"
+    ];
+
+    const todayTimestamp = Date.now() - (Date.now() % (24 * 60 * 60 * 1000));
+    let selectedDate = null;
+
+    const getNumberOfDays = (year, month) => {
+      return new Date(year, month + 1, 0).getDate();
+    };
+
+    const getDayDetails = (args) => {
+      let date = args.index - args.firstDay;
+      let dayOfWeek = (args.index % 7 + 7) % 7;
+      let prevMonth = args.month - 1;
+      let nextMonth = args.month + 1;
+      let prevYear = args.year;
+      let nextYear = args.year;
+
+      if (prevMonth < 0) {
+        prevMonth = 11;
+        prevYear--;
+      }
+
+      if (nextMonth > 11) {
+        nextMonth = 0;
+        nextYear++;
+      }
+
+      const prevMonthDays = getNumberOfDays(prevYear, prevMonth);
+      const currentMonthDays = getNumberOfDays(args.year, args.month);
+
+      let displayDate, displayMonth, displayYear;
+
+      if (date < 0) {
+        displayDate = prevMonthDays + date + 1;
+        displayMonth = prevMonth;
+        displayYear = prevYear;
+      } else if (date >= currentMonthDays) {
+        displayDate = date - currentMonthDays + 1;
+        displayMonth = nextMonth;
+        displayYear = nextYear;
+      } else {
+        displayDate = date + 1;
+        displayMonth = args.month;
+        displayYear = args.year;
+      }
+
+      const timestamp = new Date(Date.UTC(displayYear, displayMonth, displayDate)).getTime();
+
+      return {
+        date: displayDate,
+        day: dayOfWeek,
+        month: displayMonth === args.month ? 0 : displayMonth < args.month ? -1 : 1,
+        timestamp: timestamp
+      };
+    };
+
+    const getMonthDetails = (year, month) => {
+      let firstDay = new Date(Date.UTC(year, month, 1)).getUTCDay();
+      firstDay = firstDay === 0 ? 6 : firstDay - 1;
+
+      const monthArray = [];
+
+      for (let i = 0; i < 42; i++) {
+        monthArray.push(getDayDetails({
+          index: i,
+          firstDay: firstDay,
+          year: year,
+          month: month
+        }));
+      }
+
+      return monthArray;
+    };
+
+    let date = new Date();
+    let year = date.getFullYear();
+    let month = date.getMonth();
+    let monthDetails = getMonthDetails(year, month);
+
+    const setCalBody = (monthDetails) => {
+      calendarMain.innerHTML = "";
+
+      monthDetails.forEach(day => {
+        const div = document.createElement("div");
+        const span = document.createElement("span");
+
+        div.classList.add("cell_wrapper");
+        div.classList.add("cal_date");
+
+        if (day.month === 0) {
+          div.classList.add("current");
+        } else if (day.month === -1) {
+          div.classList.add("prev-month");
+        } else if (day.month === 1) {
+          div.classList.add("next-month");
+        }
+
+        if (day.timestamp === todayTimestamp && day.month === 0) {
+          div.classList.add("isCurrent");
+        }
+
+        if (day.timestamp < todayTimestamp) {
+          div.classList.add("disabled");
+          div.style.pointerEvents = "none";
+        }
+
+        if (selectedDate === day.timestamp) {
+          div.classList.add("isSelected");
+        }
+
+        span.classList.add("cell_item");
+        span.innerText = day.date;
+
+        div.setAttribute("data-timestamp", day.timestamp);
+        div.appendChild(span);
+        calendarMain.appendChild(div);
+      });
+    };
+
+    const setHeader = (year, month) => {
+      calHeaderTitle.innerHTML = `${months[month]} ${year}`;
+    };
+
+    const navigateMonth = (offset) => {
+      month += offset;
+
+      if (month === -1) {
+        month = 11;
+        year--;
+      } else if (month === 12) {
+        month = 0;
+        year++;
+      }
+
+      monthDetails = getMonthDetails(year, month);
+      setHeader(year, month);
+      setCalBody(monthDetails);
+    };
+
+    const getDateStringFromTimestamp = (timestamp) => {
+      const dateObject = new Date(timestamp);
+      const year = dateObject.getUTCFullYear();
+      const month = String(dateObject.getUTCMonth() + 1).padStart(2, "0");
+      const day = String(dateObject.getUTCDate()).padStart(2, "0");
+
+      return `${day}-${month}-${year}`;
+    };
+
+    const updateInputValue = (timestamp) => {
+      input.value = getDateStringFromTimestamp(timestamp);
+    };
+
+    const closeCalendar = () => {
+      document.querySelectorAll(".form-calendar").forEach(el => {
+        el.classList.remove("active");
+      });
+
+      document.documentElement.classList.remove("open-calendar");
+    };
+
+    setHeader(year, month);
+    setCalBody(monthDetails);
+
+    calendar.querySelectorAll(".calendar-btn").forEach(btn => {
+      btn.addEventListener("click", (e) => {
+        e.stopPropagation();
+
+        const offset = btn.classList.contains("calendar__btn-prev") ? -1 : 1;
+        navigateMonth(offset);
+      });
+    });
+
+    calendarMain.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const target = e.target.closest(".cell_wrapper.current");
+
+      if (!target || target.classList.contains("disabled")) {
+        return;
+      }
+
+      const cellTimestamp = parseInt(target.getAttribute("data-timestamp"), 10);
+
+      if (!cellTimestamp) {
+        return;
+      }
+
+      selectedDate = cellTimestamp;
+
+      calendarMain.querySelectorAll(".cell_wrapper").forEach(cell => {
+        cell.classList.remove("isSelected");
+      });
+
+      target.classList.add("isSelected");
+      updateInputValue(selectedDate);
+      closeCalendar();
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  const formCalendars = document.querySelectorAll(".form-calendar");
+
+  if (formCalendars.length > 0) {
+    formCalendars.forEach(block => {
+      block.addEventListener("click", function (e) {
+        e.stopPropagation();
+
+        const isCalendarClick = e.target.closest(".calendar");
+        const isCalendarBtnClick = e.target.closest(".calendar-btn");
+
+        if (isCalendarClick || isCalendarBtnClick) {
+          return;
+        }
+
+        const wasActive = this.classList.contains("active");
+
+        document.querySelectorAll(".form-calendar").forEach(el => {
+          el.classList.remove("active");
+        });
+
+        document.documentElement.classList.remove("open-calendar");
+
+        if (!wasActive) {
+          this.classList.add("active");
+          document.documentElement.classList.add("open-calendar");
+        }
+      });
+    });
+  }
+
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".form-calendar")) {
+      document.querySelectorAll(".form-calendar").forEach(el => {
+        el.classList.remove("active");
+      });
+
+      document.documentElement.classList.remove("open-calendar");
+    }
+  });
+});
+
+//========================================================================================================================================================
+
 function formFieldsInit(options = { viewPass: true, autoHeight: false }) {
   document.body.addEventListener("focusin", function (e) {
     const targetElement = e.target;
@@ -1304,22 +1584,7 @@ function menuClose() {
   document.documentElement.classList.remove("menu-open");
 }
 
-//========================================================================================================================================================
-
-// Добавление к шапке при скролле
-const header = document.querySelector('.header');
-if (header) {
-  window.addEventListener('scroll', function () {
-    if (window.scrollY > 0) {
-      header.classList.add('_header-scroll');
-      document.documentElement.classList.add('header-scroll');
-    } else {
-      header.classList.remove('_header-scroll');
-      document.documentElement.classList.remove('header-scroll');
-    }
-  });
-}
-
+/*
 //========================================================================================================================================================
 
 if (document.querySelector('.block-teams__slider')) {
