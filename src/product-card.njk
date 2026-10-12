@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Карточка товара</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-arrival-dates block1">
+                <div class="container">
+                    <h2 class="title2">
+                        Даты заездов
+                    </h2>
+                    <div class="block-arrival-dates__body">
+                        <div class="block-arrival-dates__column">
+                            <div class="block-arrival-dates__icon">
+                                <svg aria-hidden="true" width="19" height="20">
+                                    <use xlink:href="img/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+                            <div class="block-arrival-dates__items">
+                                <div class="block-arrival-dates__item">
+                                    <div class="block-arrival-dates__text">12 <span>мая</span></div>
+                                    <div class="block-arrival-dates__line"></div>
+                                    <div class="block-arrival-dates__text">18 <span>мая</span></div>
+                                </div>
+                                <p>
+                                    Доступно 5 мест
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block-arrival-dates__column">
+                            <div class="block-arrival-dates__icon">
+                                <svg aria-hidden="true" width="19" height="20">
+                                    <use xlink:href="img/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+                            <div class="block-arrival-dates__items">
+                                <div class="block-arrival-dates__item">
+                                    <div class="block-arrival-dates__text">04 <span>июня</span></div>
+                                    <div class="block-arrival-dates__line"></div>
+                                    <div class="block-arrival-dates__text">10 <span>июня</span></div>
+                                </div>
+                                <p>
+                                    Места есть
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block-arrival-dates__column">
+                            <div class="block-arrival-dates__icon">
+                                <svg aria-hidden="true" width="19" height="20">
+                                    <use xlink:href="img/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+                            <div class="block-arrival-dates__items">
+                                <div class="block-arrival-dates__item">
+                                    <div class="block-arrival-dates__text">21 <span>сентября</span></div>
+                                    <div class="block-arrival-dates__line"></div>
+                                    <div class="block-arrival-dates__text">27 <span>сентября</span></div>
+                                </div>
+                                <p>
+                                    Осталось 2 места
+                                </p>
+                            </div>
+                        </div>
+                        <div class="block-arrival-dates__column">
+                            <div class="block-arrival-dates__icon">
+                                <svg aria-hidden="true" width="19" height="20">
+                                    <use xlink:href="img/sprite.svg#calendar"></use>
+                                </svg>
+                            </div>
+                            <div class="block-arrival-dates__items">
+                                <div class="block-arrival-dates__item">
+                                    <div class="block-arrival-dates__text">04 <span>июня</span></div>
+                                    <div class="block-arrival-dates__line"></div>
+                                    <div class="block-arrival-dates__text">10 <span>июня</span></div>
+                                </div>
+                                <p>
+                                    Места есть
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-faq block-faq-program block1">
+                <div class="container">
+                    <div class="block-faq__content">
+                        <h2 class="title2">
+                            Программа тура по дням
+                        </h2>
+                        <div data-spollers class="spollers-faq">
+                            <div class="spollers-faq__item">
+                                <button type="button" data-spoller class="spollers-faq__button">
+                                    <span class="spollers-faq__title">
+                                        <strong>День 1:</strong> Встреча и парадный Петербург
+                                    </span>
+                                    <span class="spollers-faq__icon"></span>
+                                </button>
+                                <div class="spollers-faq__body">
+                                    <ul>
+                                        <li>
+                                            <span>
+                                                Тайминг: 10:00 — Встреча на Московском вокзале.
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                Описание: Обзорная экскурсия с посещением Петропавловской крепости.
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>Питание: Обед в городском кафе (включен).</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="spollers-faq__item">
+                                <button type="button" data-spoller class="spollers-faq__button">
+                                    <span class="spollers-faq__title">
+                                        <strong>День 2:</strong> Императорские резиденции (Петергоф)
+                                    </span>
+                                    <span class="spollers-faq__icon"></span>
+                                </button>
+                                <div class="spollers-faq__body">
+                                    <ul>
+                                        <li>
+                                            <span>
+                                                Тайминг: 10:00 — Встреча на Московском вокзале.
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                Описание: Обзорная экскурсия с посещением Петропавловской крепости.
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>Питание: Обед в городском кафе (включен).</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="spollers-faq__item">
+                                <button type="button" data-spoller class="spollers-faq__button">
+                                    <span class="spollers-faq__title">
+                                        <strong>День 3:</strong> Отправление в Карелию (Рускеала)
+                                    </span>
+                                    <span class="spollers-faq__icon"></span>
+                                </button>
+                                <div class="spollers-faq__body">
+                                    <ul>
+                                        <li>
+                                            <span>
+                                                Тайминг: 10:00 — Встреча на Московском вокзале.
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>
+                                                Описание: Обзорная экскурсия с посещением Петропавловской крепости.
+                                            </span>
+                                        </li>
+                                        <li>
+                                            <span>Питание: Обед в городском кафе (включен).</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-included-price block1">
+                <div class="container">
+                    <h2 class="title2">
+                        Что входит в стоимость
+                    </h2>
+                    <div class="block-included-price__body">
+                        <div class="block-included-price__column">
+                            <div class="block-included-price__top">
+                                <div class="block-included-price__icon">
+                                    <img loading="lazy" src="img/shtamp2.webp" alt=""
+                                        class="block-included-price__pic1">
+                                    <img loading="lazy" src="img/icons/check-green.svg" alt=""
+                                        class="block-included-price__pic2">
+                                </div>
+                                <div class="block-included-price__title">
+                                    Включено
+                                </div>
+                            </div>
+                            <ul>
+                                <li>
+                                    <p>Проживание в отеле выбранной категории</p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Транспортное обслуживание по программе (автобус туркласса)
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Входные билеты в музеи: Эрмитаж, Нижний парк Петергофа
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Питание: 2 завтрака, 1 обед
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block-included-price__column column-red">
+                            <div class="block-included-price__top">
+                                <div class="block-included-price__icon">
+                                    <img loading="lazy" src="img/shtamp2.webp" alt=""
+                                        class="block-included-price__pic1">
+                                    <img loading="lazy" src="img/icons/close-red.svg" alt=""
+                                        class="block-included-price__pic2">
+                                </div>
+                                <div class="block-included-price__title">
+                                    Оплачивается отдельно
+                                </div>
+                            </div>
+                            <ul>
+                                <li>
+                                    <p>
+                                        Ж/Д или авиабилеты до Санкт-Петербурга
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Дополнительная экскурсия по крышам (по желанию, 1500 ₽).
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        Ужины
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

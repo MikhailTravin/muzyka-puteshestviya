@@ -66,7 +66,51 @@
                                 </div>
                                 <div class="form-price__input">
                                     <div class="form-price__label">Дата поездки:</div>
-                                    <div class="calendar"></div>
+                                    <div class="form-calendar">
+                                        <div class="form-calendar__input">
+                                            <input readonly data-required autocomplete="off" type="text" class="input-calendar"
+                                                name="form[]" placeholder="Выбрать дату">
+                                            <svg aria-hidden="true" width="20" height="20">
+                                                <use xlink:href="img/sprite.svg#calendar"></use>
+                                            </svg>
+                                        </div>
+                                        <div class="calendar">
+                                            <div class="calendar__content">
+                                                <div class="calendar__header">
+                                                    <button type="button" class="calendar__btn-prev calendar-btn">
+                                                        <svg aria-hidden="true" width="10" height="14">
+                                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                        </svg>
+                                                    </button>
+                                                    <span></span>
+                                                    <button type="button" class="calendar__btn-next calendar-btn">
+                                                        <svg aria-hidden="true" width="10" height="14">
+                                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                                <div class="calendar__wrapper">
+                                                    <div class="calendar__days">
+                                                        <div class="cell_wrapper cal_days"><span
+                                                                class="cell_item">Пн</span></div>
+                                                        <div class="cell_wrapper cal_days"><span
+                                                                class="cell_item">Вт</span></div>
+                                                        <div class="cell_wrapper cal_days"><span
+                                                                class="cell_item">Ср</span></div>
+                                                        <div class="cell_wrapper cal_days"><span
+                                                                class="cell_item">Чт</span></div>
+                                                        <div class="cell_wrapper cal_days"><span
+                                                                class="cell_item">Пт</span></div>
+                                                        <div class="cell_wrapper cal_days"><span
+                                                                class="cell_item">Сб</span></div>
+                                                        <div class="cell_wrapper cal_days"><span
+                                                                class="cell_item">Вс</span></div>
+                                                    </div>
+                                                    <div class="calendar__main"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                                 <div class="form-price__input">
                                     <div class="form-price__label">Кол-во человек:</div>

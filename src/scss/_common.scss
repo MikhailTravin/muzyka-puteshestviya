@@ -75,7 +75,7 @@ a {
     font-size: 42px;
   }
   @media (max-width: 550px) {
-    font-size: 35px;
+    font-size: 32px;
   }
 }
 .title2 {
@@ -94,6 +94,21 @@ a {
   }
   @media (max-width: 550px) {
     font-size: 24px;
+  }
+  span {
+    font-weight: 400;
+  }
+  br {
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+  &.title2-white {
+    background: none;
+    -webkit-background-clip: initial;
+    background-clip: initial;
+    -webkit-text-fill-color: currentColor;
+    color: var(--ffffff);
   }
 }
 
@@ -124,6 +139,8 @@ a {
     padding: 10px 20px;
   }
   img {
+    position: relative;
+    z-index: 10;
     width: 20px;
     height: auto;
     margin-right: 4px;
@@ -143,6 +160,11 @@ a {
   span {
     position: relative;
     z-index: 10;
+    &.span-none {
+      @media (max-width: 768px) {
+        display: none;
+      }
+    }
   }
   &.btn-small {
     font-size: 13px;
@@ -177,6 +199,9 @@ a {
       }
     }
   }
+  &.btn-blue {
+    background-color: #033f61;
+  }
   @media (any-hover: hover) {
     &:hover {
       &::before {
@@ -189,10 +214,13 @@ a {
   // .btn__icon
 
   &__icon {
+    position: relative;
+    z-index: 10;
     display: flex;
     justify-content: center;
     align-items: center;
     svg {
+      fill: var(--ffffff);
       transition: fill 0.3s;
     }
   }
@@ -299,6 +327,32 @@ a {
     &.badge-white {
       color: var(--0476bb);
       background: var(--ffffff);
+    }
+  }
+}
+
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  @media (max-width: 550px) {
+    justify-content: center;
+  }
+  a {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    flex: 0 0 30px;
+    transition: opacity 0.3s;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        opacity: 0.7;
+      }
     }
   }
 }

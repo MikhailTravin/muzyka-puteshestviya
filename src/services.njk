@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Услуги</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-tour-guides block1">
+                <div class="container">
+                    <div class="block-tour-guides__content">
+                        <div class="block-tour-guides__left">
+                            <h2 class="title2">
+                                Лицензированные гиды-экскурсоводы
+                            </h2>
+                            <ul>
+                                <li>
+                                    <div class="block-tour-guides__icon">
+                                        <svg aria-hidden="true" width="20" height="16">
+                                            <use xlink:href="img/sprite.svg#check1"></use>
+                                        </svg>
+                                    </div>
+                                    <p>
+                                        Проведение экскурсий на иностранных языках (Английский, Китайский, Немецкий,
+                                        Испанский и др.).
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="block-tour-guides__icon">
+                                        <svg aria-hidden="true" width="20" height="16">
+                                            <use xlink:href="img/sprite.svg#check1"></use>
+                                        </svg>
+                                    </div>
+                                    <p>
+                                        Сопровождение делегаций и MICE-мероприятий.
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="block-tour-guides__icon">
+                                        <svg aria-hidden="true" width="20" height="16">
+                                            <use xlink:href="img/sprite.svg#check1"></use>
+                                        </svg>
+                                    </div>
+                                    <p>
+                                        Помощь с приобретением билетов в музеи без очереди
+                                    </p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="block-tour-guides__right">
+                            <p>
+                                В нашей базе более 50 аккредитованных экскурсоводов. Мы подберем специалиста под
+                                специфику вашей группы: от искусствоведа для глубокого погружения в тему до
+                                анимационного гида, который сможет удержать внимание младших школьников
+                            </p>
+                            <a href="./" data-popup="#price" class="btn">
+                                <img src="img/icons/calculator.svg" alt="">
+                                <span>Рассчитать стоимость тура</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-banner2 block2">
+                <div class="container">
+                    <div class="block-banner2__content">
+                        <div class="block-banner2__left">
+                            <h2 class="title2 title2-white">
+                                Нужен комплексный расчет <span>(MICE или корпоративный выезд)?</span>
+                            </h2>
+                        </div>
+                        <div class="block-banner2__right">
+                            <p>
+                                Если вам требуется организовать логистику, проживание и экскурсии для большой группы,
+                                перейдите в раздел для корпоративных клиентов
+                            </p>
+                            <a href="./" class="btn btn-blue">
+                                <span>Перейти в раздел MICE</span>
+                                <div class="btn__icon">
+                                    <svg aria-hidden="true" width="6" height="8">
+                                        <use xlink:href="img/sprite.svg#arrow1"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>
