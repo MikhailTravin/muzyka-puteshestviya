@@ -11,6 +11,133 @@
         {% include 'blocks/header.njk' %}
         <main class="main">
 
+            <div class="block-intro block-intro-bg">
+                <div class="container">
+                    <div class="block-intro__content">
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li>
+                                    <a href="#" class="home">
+                                        <img src="img/icons/home.svg" alt="">
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="./">Туры</a>
+                                </li>
+                                <li>
+                                    <a href="./">Сборные туры</a>
+                                </li>
+                                <li><span>Знакомство с Петербургом</span></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-product-card block1">
+                <div class="container">
+                    <div class="block-product-card__content">
+                        <div class="images-product">
+                            <div class="images-product__slider swiper">
+                                <div class="images-product__wrapper swiper-wrapper">
+                                    <a href="img/products/image1.webp" data-fancybox="gallery1"
+                                        class="images-product__slide swiper-slide">
+                                        <img loading="lazy" src="img/products/image1.webp" alt="">
+                                    </a>
+                                    <a href="img/products/image1.webp" data-fancybox="gallery1"
+                                        class="images-product__slide swiper-slide">
+                                        <img loading="lazy" src="img/products/image1.webp" alt="">
+                                    </a>
+                                    <a href="img/products/image1.webp" data-fancybox="gallery1"
+                                        class="images-product__slide swiper-slide">
+                                        <img loading="lazy" src="img/products/image1.webp" alt="">
+                                    </a>
+                                    <a href="img/products/image1.webp" data-fancybox="gallery1"
+                                        class="images-product__slide swiper-slide">
+                                        <img loading="lazy" src="img/products/image1.webp" alt="">
+                                    </a>
+                                </div>
+                                <div class="badges">
+                                    <div class="badges__badge badge-white">
+                                        Хит
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="images-product__thumbs">
+                                <div class="images-product__thumb swiper">
+                                    <div class="images-product__wrapper swiper-wrapper">
+                                        <div class="images-product__slide swiper-slide">
+                                            <img loading="lazy" src="img/products/image1.webp" alt="">
+                                        </div>
+                                        <div class="images-product__slide swiper-slide">
+                                            <img loading="lazy" src="img/products/image1.webp" alt="">
+                                        </div>
+                                        <div class="images-product__slide swiper-slide">
+                                            <img loading="lazy" src="img/products/image1.webp" alt="">
+                                        </div>
+                                        <div class="images-product__slide swiper-slide">
+                                            <img loading="lazy" src="img/products/image1.webp" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-product-card__body">
+                            <h1 class="title2">
+                                Классический Петербург и вся Карелия
+                            </h1>
+                            <div class="line"></div>
+                            <div class="block-product-card__descr">
+                                <ul>
+                                    <li>
+                                        <div class="block-product-card__icon">
+                                            <svg aria-hidden="true" width="15" height="16">
+                                                <use xlink:href="img/sprite.svg#calendar"></use>
+                                            </svg>
+                                        </div>
+                                        <p>
+                                            5 дней / 4 ночи
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="block-product-card__icon">
+                                            <svg aria-hidden="true" width="16" height="16">
+                                                <use xlink:href="img/sprite.svg#map2"></use>
+                                            </svg>
+                                        </div>
+                                        <p>
+                                            Автобус + Пешком
+                                        </p>
+                                    </li>
+                                    <li>
+                                        <div class="block-product-card__icon">
+                                            <svg aria-hidden="true" width="16" height="15">
+                                                <use xlink:href="img/sprite.svg#peoples"></use>
+                                            </svg>
+                                        </div>
+                                        <p>
+                                            до 40 человек
+                                        </p>
+                                    </li>
+                                </ul>
+                                <div class="block-product-card__price">
+                                    от 15 900 ₽
+                                </div>
+                            </div>
+                            <div class="block-product-card__buttons">
+                                <a href="./" class="btn">
+                                    <img src="img/icons/calculator.svg" alt="">
+                                    <span>Рассчитать стоимость</span>
+                                </a>
+                                <a href="#" download="#" class="block-product-card__download">
+                                    <span>Скачать программу в PDF</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <div class="block-arrival-dates block1">
                 <div class="container">
                     <h2 class="title2">
@@ -244,6 +371,545 @@
                                     </p>
                                 </li>
                             </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-hotel block1">
+                <div class="container">
+                    <div class="block-hotel__content">
+                        <h2 class="title2 title2-white">
+                            Выберите гостиницу
+                        </h2>
+                        <div data-tabs class="tabs">
+                            <nav data-tabs-titles class="tabs__navigation">
+                                <button type="button" class="tabs__title _tab-active">Отель "Россия" 3*</button>
+                                <button type="button" class="tabs__title">Отель "Москва" 4*</button>
+                                <button type="button" class="tabs__title">Бутик-отель 5*</button>
+                            </nav>
+                            <div data-tabs-body class="tabs__content">
+                                <div class="tabs__body">
+                                    <div class="block-hotel__slider swiper">
+                                        <div class="block-hotel__wrapper swiper-wrapper">
+                                            <div class="block-hotel__slide swiper-slide">
+                                                <div class="images-product">
+                                                    <div class="images-product__slider swiper">
+                                                        <div class="images-product__wrapper swiper-wrapper">
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery2"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery2"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery2"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery1"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="images-product__thumbs">
+                                                        <div class="images-product__thumb swiper">
+                                                            <div class="images-product__wrapper swiper-wrapper">
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="block-hotel__body">
+                                                    <div class="block-hotel__top">
+                                                        <div class="block-hotel__map">
+                                                            <img loading="lazy" src="img/icons/map3.svg" alt="">
+                                                            <span>Ст. метро Площадь Александра Невского</span>
+                                                        </div>
+                                                        <p>
+                                                            Однокомнатный номер с двумя отдельными односпальными
+                                                            кроватями, повышенной комфортности, и ортопедическим
+                                                            матрасом высотой 22 см, для проживания двух человек.
+                                                        </p>
+                                                    </div>
+                                                    <div class="block-hotel__bottom">
+                                                        <div class="options">
+                                                            <label class="options__item">
+                                                                <input hidden class="options__input" checked
+                                                                    type="radio" value="1" name="option1">
+                                                                <span class="options__label">
+                                                                    <span class="options__icon"></span>
+                                                                    <span class="options__titles">
+                                                                        <span class="options__title">
+                                                                            Стандартный двухместный
+                                                                        </span>
+                                                                        <span class="options__subtitle">
+                                                                            <span class="options__price">
+                                                                                + 0 ₽
+                                                                            </span>
+                                                                            <span class="options__text">к базовой
+                                                                                цене</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="options__item">
+                                                                <input hidden class="options__input" type="radio"
+                                                                    value="2" name="option1">
+                                                                <span class="options__label">
+                                                                    <span class="options__icon"></span>
+                                                                    <span class="options__titles">
+                                                                        <span class="options__title">
+                                                                            Одноместное размещение
+                                                                        </span>
+                                                                        <span class="options__subtitle">
+                                                                            <span class="options__price">
+                                                                                + 4 500 ₽
+                                                                            </span>
+                                                                            <span class="options__text">к базовой
+                                                                                цене</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <a href="./" class="btn">
+                                                            <span>Выбрать гостиницу</span>
+                                                            <div class="btn__icon">
+                                                                <svg aria-hidden="true" width="6" height="8">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="block-hotel__slide swiper-slide">
+                                                <div class="images-product">
+                                                    <div class="images-product__slider swiper">
+                                                        <div class="images-product__wrapper swiper-wrapper">
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery2"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery2"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery2"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                            <a href="img/products/image2.webp" data-fancybox="gallery1"
+                                                                class="images-product__slide swiper-slide">
+                                                                <img loading="lazy" src="img/products/image2.webp"
+                                                                    alt="">
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <div class="images-product__thumbs">
+                                                        <div class="images-product__thumb swiper">
+                                                            <div class="images-product__wrapper swiper-wrapper">
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                                <div class="images-product__slide swiper-slide">
+                                                                    <img loading="lazy" src="img/products/image2.webp"
+                                                                        alt="">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="block-hotel__body">
+                                                    <div class="block-hotel__top">
+                                                        <div class="block-hotel__map">
+                                                            <img loading="lazy" src="img/icons/map3.svg" alt="">
+                                                            <span>Ст. метро Площадь Александра Невского</span>
+                                                        </div>
+                                                        <p>
+                                                            Однокомнатный номер с двумя отдельными односпальными
+                                                            кроватями, повышенной комфортности, и ортопедическим
+                                                            матрасом высотой 22 см, для проживания двух человек.
+                                                        </p>
+                                                    </div>
+                                                    <div class="block-hotel__bottom">
+                                                        <div class="options">
+                                                            <label class="options__item">
+                                                                <input hidden class="options__input" checked
+                                                                    type="radio" value="1" name="option2">
+                                                                <span class="options__label">
+                                                                    <span class="options__icon"></span>
+                                                                    <span class="options__titles">
+                                                                        <span class="options__title">
+                                                                            Стандартный двухместный
+                                                                        </span>
+                                                                        <span class="options__subtitle">
+                                                                            <span class="options__price">
+                                                                                + 0 ₽
+                                                                            </span>
+                                                                            <span class="options__text">к базовой
+                                                                                цене</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                            <label class="options__item">
+                                                                <input hidden class="options__input" type="radio"
+                                                                    value="2" name="option2">
+                                                                <span class="options__label">
+                                                                    <span class="options__icon"></span>
+                                                                    <span class="options__titles">
+                                                                        <span class="options__title">
+                                                                            Одноместное размещение
+                                                                        </span>
+                                                                        <span class="options__subtitle">
+                                                                            <span class="options__price">
+                                                                                + 4 500 ₽
+                                                                            </span>
+                                                                            <span class="options__text">к базовой
+                                                                                цене</span>
+                                                                        </span>
+                                                                    </span>
+                                                                </span>
+                                                            </label>
+                                                        </div>
+                                                        <a href="./" class="btn">
+                                                            <span>Выбрать гостиницу</span>
+                                                            <div class="btn__icon">
+                                                                <svg aria-hidden="true" width="6" height="8">
+                                                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                                </svg>
+                                                            </div>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="slider-navs">
+                                        <button type="button" class="slider-nav arrow-prev hotel-arrow-prev">
+                                            <svg aria-hidden="true" width="11" height="16">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                        <button type="button" class="slider-nav arrow-next hotel-arrow-next">
+                                            <svg aria-hidden="true" width="11" height="16">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="tabs__body">
+                                    Содержимое второго таба
+                                </div>
+                                <div class="tabs__body">
+                                    Содержимое третьего таба
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="block-similar block1">
+                <div class="container">
+                    <h2 class="title2">
+                        Похожие туры и экскурсии
+                    </h2>
+                    <div class="block-similar__body">
+                        <div class="block-similar__slider swiper">
+                            <div class="block-similar__wrapper swiper-wrapper">
+                                <div class="block-similar__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="badges">
+                                                <div class="badges__badge badge-white">
+                                                    Осенние каникулы
+                                                </div>
+                                            </div>
+                                            <img loading="lazy" src="img/catalog/image4.webp" alt=""
+                                                class="card-product__pic1">
+                                            <div class="card-product__prices">
+                                                <div class="card-product__price">
+                                                    от 51 600 ₽
+                                                </div>
+                                                <span>
+                                                    при формуле 15+1
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div class="card-product__descr">
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="11" height="12">
+                                                                <use xlink:href="img/sprite.svg#calendar"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>3 дня / 2 ночи</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="12" height="12">
+                                                                <use xlink:href="img/sprite.svg#map2"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>Автобус + Пешком</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__titles">
+                                                    <div class="card-product__title">
+                                                        Занимательная физика и астрономия в Петербурге
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-product__buttons">
+                                                <a href="./" class="btn btn-small">
+                                                    <span>Программа и расчет</span>
+                                                    <div class="btn__icon">
+                                                        <svg aria-hidden="true" width="6" height="8">
+                                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#" download="#" class="btn btn-white btn-small">
+                                                    <span>Скачать программу для родительского чата .pdf</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-similar__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="badges">
+                                                <div class="badges__badge badge-white">
+                                                    Для 5-8 классов
+                                                </div>
+                                            </div>
+                                            <img loading="lazy" src="img/catalog/image12.webp" alt=""
+                                                class="card-product__pic1">
+                                            <div class="card-product__prices">
+                                                <div class="card-product__price">
+                                                    от 51 600 ₽
+                                                </div>
+                                                <span>
+                                                    при формуле 15+1
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div class="card-product__descr">
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="11" height="12">
+                                                                <use xlink:href="img/sprite.svg#calendar"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>3 дня / 2 ночи</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="12" height="12">
+                                                                <use xlink:href="img/sprite.svg#map2"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>Автобус + Пешком</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__titles">
+                                                    <div class="card-product__title">
+                                                        Занимательная физика и астрономия в Петербурге
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-product__buttons">
+                                                <a href="./" class="btn btn-small">
+                                                    <span>Программа и расчет</span>
+                                                    <div class="btn__icon">
+                                                        <svg aria-hidden="true" width="6" height="8">
+                                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#" download="#" class="btn btn-white btn-small">
+                                                    <span>Скачать программу для родительского чата .pdf</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-similar__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="badges">
+                                                <div class="badges__badge badge-white">
+                                                    Осенние каникулы
+                                                </div>
+                                            </div>
+                                            <img loading="lazy" src="img/catalog/image13.webp" alt=""
+                                                class="card-product__pic1">
+                                            <div class="card-product__prices">
+                                                <div class="card-product__price">
+                                                    от 8 700 ₽
+                                                </div>
+                                                <span>
+                                                    при формуле 15+1
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div class="card-product__descr">
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="11" height="12">
+                                                                <use xlink:href="img/sprite.svg#calendar"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>3 дня / 2 ночи</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="12" height="12">
+                                                                <use xlink:href="img/sprite.svg#map2"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>Автобус + Пешком</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__titles">
+                                                    <div class="card-product__title">
+                                                        Занимательная физика и астрономия в Петербурге
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-product__buttons">
+                                                <a href="./" class="btn btn-small">
+                                                    <span>Программа и расчет</span>
+                                                    <div class="btn__icon">
+                                                        <svg aria-hidden="true" width="6" height="8">
+                                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#" download="#" class="btn btn-white btn-small">
+                                                    <span>Скачать программу для родительского чата .pdf</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="block-similar__slide swiper-slide">
+                                    <div class="card-product">
+                                        <div class="card-product__image">
+                                            <div class="badges">
+                                                <div class="badges__badge badge-white">
+                                                    Осенние каникулы
+                                                </div>
+                                            </div>
+                                            <img loading="lazy" src="img/catalog/image13.webp" alt=""
+                                                class="card-product__pic1">
+                                            <div class="card-product__prices">
+                                                <div class="card-product__price">
+                                                    от 8 700 ₽
+                                                </div>
+                                                <span>
+                                                    при формуле 15+1
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="card-product__item">
+                                            <div class="card-product__top">
+                                                <div class="card-product__descr">
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="11" height="12">
+                                                                <use xlink:href="img/sprite.svg#calendar"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>3 дня / 2 ночи</span>
+                                                    </div>
+                                                    <div class="card-product__data">
+                                                        <div class="card-product__icon">
+                                                            <svg aria-hidden="true" width="12" height="12">
+                                                                <use xlink:href="img/sprite.svg#map2"></use>
+                                                            </svg>
+                                                        </div>
+                                                        <span>Автобус + Пешком</span>
+                                                    </div>
+                                                </div>
+                                                <div class="card-product__titles">
+                                                    <div class="card-product__title">
+                                                        Занимательная физика и астрономия в Петербурге
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="card-product__buttons">
+                                                <a href="./" class="btn btn-small">
+                                                    <span>Программа и расчет</span>
+                                                    <div class="btn__icon">
+                                                        <svg aria-hidden="true" width="6" height="8">
+                                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                                        </svg>
+                                                    </div>
+                                                </a>
+                                                <a href="#" download="#" class="btn btn-white btn-small">
+                                                    <span>Скачать программу для родительского чата .pdf</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-navs">
+                            <button type="button" class="slider-nav arrow-prev similar-arrow-prev">
+                                <svg aria-hidden="true" width="11" height="16">
+                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                </svg>
+                            </button>
+                            <button type="button" class="slider-nav arrow-next similar-arrow-next">
+                                <svg aria-hidden="true" width="11" height="16">
+                                    <use xlink:href="img/sprite.svg#arrow1"></use>
+                                </svg>
+                            </button>
                         </div>
                     </div>
                 </div>
