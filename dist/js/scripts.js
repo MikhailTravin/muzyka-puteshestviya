@@ -1015,31 +1015,6 @@ function formSubmit() {
 
   async function formSubmitAction(form, e) {
     let hasError = false;
-    const selectContents = form.querySelectorAll('.select__content');
-
-    selectContents.forEach(content => {
-      const selectItem = content.closest('.select');
-      if (!selectItem) return;
-
-      const originalSelect = selectItem.querySelector('select');
-      if (!originalSelect) return;
-
-      const value = content.value.trim();
-      const formInput = selectItem.closest('.form__input');
-
-      if (!value) {
-        hasError = true;
-        content.classList.add('_form-error');
-        if (formInput) {
-          formInput.classList.add('_form-error');
-        }
-      } else {
-        content.classList.remove('_form-error');
-        if (formInput) {
-          formInput.classList.remove('_form-error');
-        }
-      }
-    });
 
     if (hasError) {
       e.preventDefault();
@@ -2259,12 +2234,407 @@ if (document.querySelector('.block-similar__slider')) {
   });
 }
 
+if (document.querySelector('.block-filter-catalog__slider')) {
+  const catalogSwiper = new Swiper('.block-filter-catalog__slider', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: "auto",
+    spaceBetween: 0,
+    speed: 400,
+    preloadImages: true,
+  });
+}
+
+if (document.querySelector('.block-placement__slider')) {
+  const placementSwiper = new Swiper('.block-placement__slider', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 400,
+    preloadImages: true,
+    navigation: {
+      prevEl: '.placement-arrow-prev',
+      nextEl: '.placement-arrow-next',
+    },
+  });
+}
+
+if (document.querySelector('.block-projects__slider')) {
+  const projectsSwiper = new Swiper('.block-projects__slider', {
+    observer: true,
+    observeParents: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    speed: 400,
+    preloadImages: true,
+    navigation: {
+      prevEl: '.projects-arrow-prev',
+      nextEl: '.projects-arrow-next',
+    },
+  });
+}
+
 //========================================================================================================================================================
 
 Fancybox.bind("[data-fancybox]", {
   // опции
 });
 
+//========================================================================================================================================================
+
+const filterCards = document.querySelectorAll('.filter-card');
+if (filterCards) {
+  const filterButtons = document.querySelectorAll('.filter-catalog__slide');
+
+  function filterCardsByValue(filterValue) {
+    filterCards.forEach(card => {
+      const cardFilter = card.getAttribute('data-filter');
+      const show = filterValue === 'all' || cardFilter === filterValue;
+      card.style.display = show ? '' : 'none';
+      card.classList.toggle('hidden', !show);
+    });
+  }
+
+  const initialActive = document.querySelector('.filter-catalog__slide.active');
+  if (initialActive) {
+    const initialValue = initialActive.getAttribute('data-filter');
+    if (initialValue) filterCardsByValue(initialValue);
+  }
+
+  filterButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      filterButtons.forEach(btn => btn.classList.remove('active'));
+      this.classList.add('active');
+
+      const filterValue = this.getAttribute('data-filter');
+      filterCardsByValue(filterValue || 'all');
+    });
+  });
+}
+
+//========================================================================================================================================================
+
+function showMore() {
+  window.addEventListener("load", function (e) {
+    const showMoreBlocks = document.querySelectorAll('[data-showmore]');
+    let showMoreBlocksRegular;
+    let mdQueriesArray;
+    if (showMoreBlocks.length) {
+      showMoreBlocksRegular = Array.from(showMoreBlocks).filter(function (item, index, self) {
+        return !item.dataset.showmoreMedia;
+      });
+      showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
+
+      document.addEventListener("click", showMoreActions);
+      window.addEventListener("resize", showMoreActions);
+
+      mdQueriesArray = dataMediaQueries(showMoreBlocks, "showmoreMedia");
+      if (mdQueriesArray && mdQueriesArray.length) {
+        mdQueriesArray.forEach(mdQueriesItem => {
+          mdQueriesItem.matchMedia.addEventListener("change", function () {
+            initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+          });
+        });
+        initItemsMedia(mdQueriesArray);
+      }
+    }
+    function initItemsMedia(mdQueriesArray) {
+      mdQueriesArray.forEach(mdQueriesItem => {
+        initItems(mdQueriesItem.itemsArray, mdQueriesItem.matchMedia);
+      });
+    }
+    function initItems(showMoreBlocks, matchMedia) {
+      showMoreBlocks.forEach(showMoreBlock => {
+        initItem(showMoreBlock, matchMedia);
+      });
+    }
+    function initItem(showMoreBlock, matchMedia = false) {
+      showMoreBlock = matchMedia ? showMoreBlock.item : showMoreBlock;
+      let showMoreContent = showMoreBlock.querySelectorAll('[data-showmore-content]');
+      let showMoreButton = showMoreBlock.querySelectorAll('[data-showmore-button]');
+      showMoreContent = Array.from(showMoreContent).filter(item => item.closest('[data-showmore]') === showMoreBlock)[0];
+      showMoreButton = Array.from(showMoreButton).filter(item => item.closest('[data-showmore]') === showMoreBlock)[0];
+      const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
+      if (matchMedia.matches || !matchMedia) {
+        if (hiddenHeight < getOriginalHeight(showMoreContent)) {
+          _slideUp(showMoreContent, 0, showMoreBlock.classList.contains('_showmore-active') ? getOriginalHeight(showMoreContent) : hiddenHeight);
+          showMoreButton.hidden = false;
+        } else {
+          _slideDown(showMoreContent, 0, hiddenHeight);
+          showMoreButton.hidden = true;
+        }
+      } else {
+        _slideDown(showMoreContent, 0, hiddenHeight);
+        showMoreButton.hidden = true;
+      }
+    }
+    function getHeight(showMoreBlock, showMoreContent) {
+      let hiddenHeight = 0;
+      const showMoreType = showMoreBlock.dataset.showmore ? showMoreBlock.dataset.showmore : 'size';
+      const rowGap = parseFloat(getComputedStyle(showMoreContent).rowGap) ? parseFloat(getComputedStyle(showMoreContent).rowGap) : 0;
+      if (showMoreType === 'items') {
+        let showMoreTypeValue = showMoreContent.dataset.showmoreContent ? parseInt(showMoreContent.dataset.showmoreContent) : 3;
+        const showMoreItems = showMoreContent.children;
+        showMoreTypeValue = Math.min(showMoreTypeValue, showMoreItems.length);
+        for (let index = 1; index <= showMoreTypeValue; index++) {
+          const showMoreItem = showMoreItems[index - 1];
+          const marginTop = parseFloat(getComputedStyle(showMoreItem).marginTop) ? parseFloat(getComputedStyle(showMoreItem).marginTop) : 0;
+          const marginBottom = parseFloat(getComputedStyle(showMoreItem).marginBottom) ? parseFloat(getComputedStyle(showMoreItem).marginBottom) : 0;
+          hiddenHeight += showMoreItem.offsetHeight + marginTop;
+          if (index == showMoreTypeValue) break;
+          hiddenHeight += marginBottom;
+        }
+        rowGap ? hiddenHeight += (showMoreTypeValue - 1) * rowGap : null;
+      } else {
+        const showMoreTypeValue = showMoreContent.dataset.showmoreContent ? parseInt(showMoreContent.dataset.showmoreContent) : 150;
+        hiddenHeight = showMoreTypeValue;
+      }
+      return hiddenHeight;
+    }
+
+    function getOriginalHeight(showMoreContent) {
+      let parentHidden;
+      let hiddenHeight = showMoreContent.offsetHeight;
+      showMoreContent.style.removeProperty('height');
+      if (showMoreContent.closest(`[hidden]`)) {
+        parentHidden = showMoreContent.closest(`[hidden]`);
+        parentHidden.hidden = false;
+      }
+      let originalHeight = showMoreContent.offsetHeight;
+      parentHidden ? parentHidden.hidden = true : null;
+      showMoreContent.style.height = `${hiddenHeight}px`;
+      return originalHeight;
+    }
+    function showMoreActions(e) {
+      const targetEvent = e.target;
+      const targetType = e.type;
+      if (targetType === 'click') {
+        if (targetEvent.closest('[data-showmore-button]')) {
+          const showMoreButton = targetEvent.closest('[data-showmore-button]');
+          const showMoreBlock = showMoreButton.closest('[data-showmore]');
+          const showMoreContent = showMoreBlock.querySelector('[data-showmore-content]');
+          const showMoreSpeed = showMoreBlock.dataset.showmoreButton ? showMoreBlock.dataset.showmoreButton : '500';
+          const hiddenHeight = getHeight(showMoreBlock, showMoreContent);
+          if (!showMoreContent.classList.contains('_slide')) {
+            showMoreBlock.classList.contains('_showmore-active') ? _slideUp(showMoreContent, showMoreSpeed, hiddenHeight) : _slideDown(showMoreContent, showMoreSpeed, hiddenHeight);
+            showMoreBlock.classList.toggle('_showmore-active');
+          }
+        }
+      } else if (targetType === 'resize') {
+        showMoreBlocksRegular && showMoreBlocksRegular.length ? initItems(showMoreBlocksRegular) : null;
+        mdQueriesArray && mdQueriesArray.length ? initItemsMedia(mdQueriesArray) : null;
+      }
+    }
+  });
+}
+showMore();
+
+//========================================================================================================================================================
+
+let formFiles = document.querySelectorAll('.form-file');
+
+if (formFiles.length) {
+  formFiles.forEach(formFile => {
+    const input = formFile.querySelector('input[type="file"]');
+    const titleEl = formFile.querySelector('.form-file__title');
+
+    if (!input || !titleEl) return;
+
+    const defaultTitle = titleEl.textContent.trim();
+
+    input.addEventListener('change', () => {
+      const file = input.files && input.files[0];
+
+      if (!file) {
+        titleEl.textContent = defaultTitle;
+        titleEl.classList.remove('active');
+        return;
+      }
+
+      titleEl.textContent = file.name;
+      titleEl.classList.add('active');
+    });
+  });
+}
+
+function formatSize(bytes) {
+  if (bytes < 1024) return bytes + ' Б';
+  if (bytes < 1024 * 1024) return (bytes / 1024).toFixed(1) + ' КБ';
+  return (bytes / (1024 * 1024)).toFixed(1) + ' МБ';
+}
+
+//========================================================================================================================================================
+
+//Звездный рейтинг
+function formRating() {
+  const ratings = document.querySelectorAll('[data-rating]');
+  if (ratings) {
+    ratings.forEach(rating => {
+      const ratingValue = +rating.dataset.ratingValue;
+      const ratingSize = +rating.dataset.ratingSize ? +rating.dataset.ratingSize : 5;
+      formRatingInit(rating, ratingSize);
+      ratingValue ? formRatingSet(rating, ratingValue) : null;
+      document.addEventListener('click', formRatingAction);
+    });
+  }
+
+  function formRatingAction(e) {
+    const targetElement = e.target;
+    if (targetElement.closest('.rating__input')) {
+      const currentElement = targetElement.closest('.rating__input');
+      const ratingValue = +currentElement.value;
+      const rating = currentElement.closest('.rating');
+      const ratingSet = rating.dataset.rating === 'set';
+      ratingSet ? formRatingGet(rating, ratingValue) : null;
+    }
+  }
+
+  function formRatingInit(rating, ratingSize) {
+    let ratingItems = ``;
+    for (let index = 0; index < ratingSize; index++) {
+      index === 0 ? ratingItems += `<div class="rating__items">` : null;
+      ratingItems += `
+                <label class="rating__item">
+                    <input class="rating__input" type="radio" name="rating" value="${index + 1}">
+                </label>`;
+      index === ratingSize ? ratingItems += `</div">` : null;
+    }
+    rating.insertAdjacentHTML("beforeend", ratingItems);
+  }
+
+  function formRatingGet(rating, ratingValue) {
+    const resultRating = ratingValue;
+    formRatingSet(rating, resultRating);
+  }
+
+  function formRatingSet(rating, value) {
+    const ratingItems = rating.querySelectorAll('.rating__item');
+    const resultFullItems = parseInt(value);
+    const resultPartItem = value - resultFullItems;
+
+    rating.hasAttribute('data-rating-title') ? rating.title = value : null;
+
+    ratingItems.forEach((ratingItem, index) => {
+      ratingItem.classList.remove('rating__item--active');
+      ratingItem.querySelector('span') ? ratingItems[index].querySelector('span').remove() : null;
+
+      if (index <= (resultFullItems - 1)) {
+        ratingItem.classList.add('rating__item--active');
+      }
+      if (index === resultFullItems && resultPartItem) {
+        ratingItem.insertAdjacentHTML("beforeend", `<span style="width:${resultPartItem * 100}%"></span>`);
+      }
+    });
+  }
+
+  function formRatingSend() {
+  }
+}
+formRating();
+
+//========================================================================================================================================================
+
+//Яндекс карта
+const MAP_CONFIG = {
+  mapId: 'map1',
+  center: [59.955034, 30.304343],
+  zoom: 15,
+  controls: ['zoomControl'],
+  behaviors: ['drag'],
+
+  place: {
+    coords: [59.955034, 30.304343],
+    icon: 'img/icons/map-marker.svg',
+
+    fields: {
+      addressSpan: '197198, г. Санкт-Петербург,',
+      address: 'ул. Лизы Чайкиной, д. 22, литер А, пом. 9Н',
+      metro: 'Петроградская',
+      parking: 'Гостевая парковка во дворе, въезд с ул. Лизы Чайкиной',
+      routeLink: 'https://yandex.ru/maps/?rtext=~59.955034,30.304343'
+    }
+  }
+};
+
+ymaps.ready(() => {
+  const el = document.getElementById(MAP_CONFIG.mapId);
+  if (!el) return;
+  initMap(MAP_CONFIG);
+});
+
+function initMap(config) {
+  const map = new ymaps.Map(config.mapId, {
+    center: config.center,
+    zoom: config.zoom,
+    controls: config.controls,
+    behaviors: config.behaviors
+  });
+
+  map.geoObjects.add(createPlacemark(config.place));
+  return map;
+}
+
+function createPlacemark(place) {
+  const f = place.fields || {};
+
+  const html = `
+    <div class="map-marker">
+      <div class="map-marker__body">
+        <div class="map-marker__columns">
+          <ul>
+            <li>
+              <div class="map-marker__icon">
+                <img src="img/icons/map-pin2.svg" alt="">
+              </div>
+              <p>
+                <span>${f.addressSpan || ''}</span> ${f.address || ''}
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div class="map-marker__columns">
+          <div class="map-marker__title">Как добраться:</div>
+          <ul>
+            <li>
+              <div class="map-marker__icon">
+                <img src="img/icons/metro.svg" alt="">
+              </div>
+              <p>
+                <span>Станция метро:</span> ${f.metro || ''}, 5 минут пешком
+              </p>
+            </li>
+            <li>
+              <div class="map-marker__icon">
+                <img src="img/icons/parking.svg" alt="">
+              </div>
+              <p>
+                <span>Парковка:</span> ${f.parking || ''}
+              </p>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <a href="${f.routeLink || './'}" class="btn btn-white btn-small">
+        <span>Построить маршрут в Яндекс.Навигаторе</span>
+        <div class="btn__icon">
+          <svg aria-hidden="true" width="6" height="8">
+            <use xlink:href="img/sprite.svg#arrow1"></use>
+          </svg>
+        </div>
+      </a>
+    </div>
+  `;
+
+  return new ymaps.Placemark(place.coords, {}, {
+    iconLayout: 'default#image',
+    iconImageHref: place.icon,
+    iconImageSize: [80, 80],
+    iconImageOffset: [-40, -40],
+    hideIconOnBalloonOpen: false,
+    balloonContentLayout: ymaps.templateLayoutFactory.createClass(html)
+  });
+}
 
 /*
 //========================================================================================================================================================
