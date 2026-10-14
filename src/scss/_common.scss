@@ -17,6 +17,9 @@ body {
   .menu-open & {
     overflow: hidden;
   }
+  .open-calendar & {
+    overflow: hidden;
+  }
 }
 
 body.noscroll {
@@ -150,6 +153,9 @@ a {
     width: 20px;
     height: auto;
     margin-right: 4px;
+  }
+  &[hidden] {
+    display: none !important;
   }
   &::before {
     content: "";

@@ -4,8 +4,8 @@ $starRating: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZp
 
 .rating {
     --star-gap: 3px;
-    --star-width: 14px;
-    --star-height: 14px;
+    --star-width: 15px;
+    --star-height: 15px;
 
     display: flex;
     height: var(--star-height);
@@ -734,6 +734,34 @@ $starRating: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZp
         }
     }
 }
+.form-calendar-blue {
+    .form-calendar__input {
+        background: var(--0476bb);
+        color: var(--ffffff);
+        flex-direction: row-reverse;
+        justify-content: center;
+        height: 50px;
+        input {
+            width: auto;
+            flex: 0 0 105px;
+            min-width: 0;
+            font-weight: 700;
+            font-size: 13px;
+            line-height: 154%;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: var(--ffffff);
+            &::placeholder {
+                color: var(--ffffff);
+            }
+        }
+        svg {
+            fill: var(--ffffff);
+        }
+    }
+    .calendar {
+    }
+}
 
 .form {
     width: 100%;
@@ -1153,9 +1181,13 @@ $starRating: "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHZp
     opacity: 0;
     transition: opacity 0.3s;
     pointer-events: none;
-    @media (max-width: 550px) {
+    @media (max-width: 992px) {
+        position: fixed;
+        bottom: 0;
+        top: auto;
         width: 100%;
-        margin-top: 5px;
+        border-radius: 10px 10px 0px 0px;
+        z-index: 110;
     }
     // .calendar__content
     &__content {

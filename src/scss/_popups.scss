@@ -126,7 +126,17 @@
             width: 100%;
         }
     }
-
+    .calendar {
+        position: absolute;
+        width: 300px;
+        bottom: auto;
+        top: 100%;
+        border-radius: 10px;
+        z-index: 40;
+        @media (max-width: 550px) {
+            width: 100%;
+        }
+    }
     // .popup-forms__body
 
     &__body {
