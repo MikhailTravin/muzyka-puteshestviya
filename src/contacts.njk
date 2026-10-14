@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Контакты</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-intro block-intro-other block-intro-contacts1">
+                <div class="container">
+                    <div class="block-intro__content">
+                        <div class="breadcrumbs">
+                            <ul>
+                                <li>
+                                    <a href="#" class="home">
+                                        <img src="img/icons/home.svg" alt="">
+                                    </a>
+                                </li>
+                                <li><span>Контакты</span></li>
+                            </ul>
+                        </div>
+                        <div class="block-intro__body">
+                            <div class="block-intro__titles">
+                                <h1 class="title1">
+                                    Контакты
+                                </h1>
+                            </div>
+                            <div class="block-intro-contacts">
+                                <div class="block-intro-contacts__column">
+                                    <div class="block-intro-contacts__icon">
+                                        <img loading="lazy" src="img/shtamp.webp" alt=""
+                                            class="block-intro-contacts__pic1">
+                                        <img loading="lazy" src="img/icons/phone4.svg" alt=""
+                                            class="block-intro-contacts__pic2">
+                                    </div>
+                                    <div class="block-intro-contacts__item">
+                                        <a href="tel:78127407098" class="block-intro-contacts__title title-phone">
+                                            +7 (812) 740-70-98
+                                        </a>
+                                        <p>
+                                            Многоканальный
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="block-intro-contacts__column">
+                                    <div class="block-intro-contacts__icon">
+                                        <img loading="lazy" src="img/shtamp.webp" alt=""
+                                            class="block-intro-contacts__pic1">
+                                        <img loading="lazy" src="img/icons/phone4.svg" alt=""
+                                            class="block-intro-contacts__pic2">
+                                    </div>
+                                    <div class="block-intro-contacts__item">
+                                        <a href="tel:79214218298" class="block-intro-contacts__title title-phone">
+                                            +7 (921) 421-82-98
+                                        </a>
+                                        <p>
+                                            MAX, Telegram
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="block-intro-contacts__column">
+                                    <div class="block-intro-contacts__icon">
+                                        <img loading="lazy" src="img/shtamp.webp" alt=""
+                                            class="block-intro-contacts__pic1">
+                                        <img loading="lazy" src="img/icons/mail4.svg" alt=""
+                                            class="block-intro-contacts__pic2">
+                                    </div>
+                                    <div class="block-intro-contacts__item">
+                                        <a href="mailto:tour@mp-sp.ru" class="block-intro-contacts__title">
+                                            tour@mp-sp.ru
+                                        </a>
+                                    </div>
+                                </div>
+                                <div class="block-intro-contacts__column">
+                                    <div class="block-intro-contacts__icon">
+                                        <img loading="lazy" src="img/shtamp.webp" alt=""
+                                            class="block-intro-contacts__pic1">
+                                        <img loading="lazy" src="img/icons/time2.svg" alt=""
+                                            class="block-intro-contacts__pic2">
+                                    </div>
+                                    <div class="block-intro-contacts__item">
+                                        <div class="block-intro-contacts__title">
+                                            Пн-Пт: 10:00 – 19:00
+                                        </div>
+                                        <p>
+                                            Сб-Вс: Выходной<br>
+                                            (или дежурный режим)
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="map1" class="block-map"></div>
+
+            <div class="block-forms1 block-forms-contacts">
+                <div class="container">
+                    <div class="block-forms1__content">
+                        <h2 class="title2 title2-white">
+                            Напишите нам
+                        </h2>
+                        <form data-dev data-popup-message="#thanks" action="#" class="form">
+                            <div class="form__body">
+                                <div class="form__inputs form-inputs4">
+                                    <div class="form__input">
+                                        <input autocomplete="off" type="text" name="form[]" placeholder="Ваше имя"
+                                            class="input">
+                                    </div>
+                                    <div class="form__input">
+                                        <input data-required autocomplete="off" type="text" name="form[]"
+                                            placeholder="Номер телефона" class="input">
+                                    </div>
+                                    <div class="form__input">
+                                        <input data-required autocomplete="off" type="text" name="form[]"
+                                            placeholder="Email" class="input">
+                                    </div>
+                                    <div class="form__input">
+                                        <select name="form[]" class="select">
+                                            <option value="1" selected>Тема обращения</option>
+                                            <option value="2">Пункт №2</option>
+                                            <option value="3">Пункт №3</option>
+                                            <option value="4">Пункт №4</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form__bottom">
+                                    <div class="form__input">
+                                        <textarea data-required placeholder="Текст сообщения"
+                                            class="input textarea"></textarea>
+                                    </div>
+                                    <button type="submit" class="btn">
+                                        <span>Отправить сообщение</span>
+                                        <div class="btn__icon">
+                                            <svg aria-hidden="true" width="6" height="8">
+                                                <use xlink:href="img/sprite.svg#arrow1"></use>
+                                            </svg>
+                                        </div>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    <script src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&amp;lang=ru_RU&amp;_v=20240623012845"></script>
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>

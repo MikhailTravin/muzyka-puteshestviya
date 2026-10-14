@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <title>Ошибка</title>
+    {% include 'blocks/head.njk' %}
+</head>
+
+<body class="preload mp">
+    <div class="main-wrapper-outer">
+        {% include 'blocks/header.njk' %}
+        <main class="main">
+
+            <div class="block-error block3">
+                <div class="container">
+                    <div class="block-error__content">
+                        <div class="block-error__body">
+                            <div class="block-error__titles">
+                                <h2 class="title2">
+                                    Страница не найдена
+                                </h2>
+                                <p>
+                                    Похоже, вы немного сбились с маршрута. Страница, которую вы ищете, переехала или
+                                    больше
+                                    не существует
+                                </p>
+                            </div>
+                            <a href="./" class="btn">
+                                <span>Вернуться на главную</span>
+                            </a>
+                            <div class="block-error__search">
+                                <input autocomplete="off" type="text" name="form[]" placeholder="Поиск по сайту">
+                                <button type="button" class="block-error__button">
+                                    <svg aria-hidden="true" width="18" height="18">
+                                        <use xlink:href="img/sprite.svg#search"></use>
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="block-error__links">
+                                <a href="./" class="block-error__link">
+                                    <span>Экскурсии</span>
+                                    <div class="block-error__icon">
+                                        <svg aria-hidden="true" width="6" height="8">
+                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="./" class="block-error__link">
+                                    <span>Школьные туры</span>
+                                    <div class="block-error__icon">
+                                        <svg aria-hidden="true" width="6" height="8">
+                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                                <a href="./" class="block-error__link">
+                                    <span>Контакты</span>
+                                    <div class="block-error__icon">
+                                        <svg aria-hidden="true" width="6" height="8">
+                                            <use xlink:href="img/sprite.svg#arrow1"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <img src="img/image24.webp" alt="" class="block-error__pic1">
+                    </div>
+                </div>
+            </div>
+
+        </main>
+        {% include 'blocks/footer.njk' %}
+    </div>
+    {% include 'blocks/popups.njk' %}
+    {% include 'blocks/scripts.njk' %}
+</body>
+
+</html>
