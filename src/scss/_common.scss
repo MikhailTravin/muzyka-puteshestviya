@@ -18,7 +18,9 @@ body {
     overflow: hidden;
   }
   .open-calendar & {
-    overflow: hidden;
+    @media (max-width: 992px) {
+      overflow: hidden;
+    }
   }
 }
 

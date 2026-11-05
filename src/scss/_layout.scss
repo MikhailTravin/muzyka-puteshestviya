@@ -36,11 +36,13 @@
     }
   }
   .open-calendar & {
-    &::before {
-      content: "";
-      opacity: 1;
-      pointer-events: auto;
-      z-index: 105;
+    @media (max-width: 992px) {
+      &::before {
+        content: "";
+        opacity: 1;
+        pointer-events: auto;
+        z-index: 105;
+      }
     }
   }
 }
