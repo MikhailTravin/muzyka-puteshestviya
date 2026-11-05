@@ -165,11 +165,13 @@ a {
   pointer-events: auto;
   z-index: 105;
 }
-.open-calendar .main-wrapper-outer::before {
-  content: "";
-  opacity: 1;
-  pointer-events: auto;
-  z-index: 105;
+@media (max-width: 992px) {
+  .open-calendar .main-wrapper-outer::before {
+    content: "";
+    opacity: 1;
+    pointer-events: auto;
+    z-index: 105;
+  }
 }
 
 .main {
@@ -2839,8 +2841,10 @@ body.hide-scrollbar {
 .menu-open body {
   overflow: hidden;
 }
-.open-calendar body {
-  overflow: hidden;
+@media (max-width: 992px) {
+  .open-calendar body {
+    overflow: hidden;
+  }
 }
 
 body.noscroll {
